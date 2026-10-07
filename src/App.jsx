@@ -4,6 +4,7 @@ import SiteHeader from "./components/siteHeader/index.jsx";
 import ViewportControls from "./components/viewportControls/index.jsx";
 import PreviewWorkspace from "./components/previewWorkspace/index.jsx";
 import BreakpointGuide from "./components/breakpointGuide/index.jsx";
+import SiteFooter from "./components/siteFooter/index.jsx";
 import {
     customViewportStorageKey,
     defaultViewports,
@@ -28,6 +29,16 @@ const App = () => {
     const handleAddCustom = (viewport) => {
         setCustomViewports((currentViewports) => [viewport, ...currentViewports]);
         setActiveViewport(viewport);
+    };
+
+    const handleRemoveCustom = (viewportId) => {
+        setCustomViewports((currentViewports) =>
+            currentViewports.filter((viewport) => viewport.id !== viewportId),
+        );
+
+        if (activeViewport.id === viewportId) {
+            setActiveViewport(defaultViewports[1]);
+        }
     };
 
     const handleViewportChange = (viewport) => {
@@ -61,6 +72,7 @@ const App = () => {
                             activeId={activeViewport.id}
                             customViewports={customViewports}
                             onAddCustom={handleAddCustom}
+                            onRemoveCustom={handleRemoveCustom}
                             onSelect={setActiveViewport}
                         />
                         <p className={styles.storageNote}>
@@ -77,6 +89,7 @@ const App = () => {
                     onTestWidth={handleTestWidth}
                 />
             </main>
+            <SiteFooter />
         </div>
     );
 };
