@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import SiteHeader from "./components/siteHeader/index.jsx";
 import ViewportControls from "./components/viewportControls/index.jsx";
 import PreviewWorkspace from "./components/previewWorkspace/index.jsx";
+import BreakpointGuide from "./components/breakpointGuide/index.jsx";
 import {
     customViewportStorageKey,
     defaultViewports,
@@ -38,6 +39,11 @@ const App = () => {
         });
     };
 
+    const handleTestWidth = (width) => {
+        handleViewportChange({ ...activeViewport, width });
+        document.getElementById("preview")?.scrollIntoView({ behavior: "smooth" });
+    };
+
     return (
         <div className={styles.appShell}>
             <SiteHeader />
@@ -66,13 +72,10 @@ const App = () => {
                         onViewportChange={handleViewportChange}
                     />
                 </div>
-                <section className={styles.guide} id="guide">
-                    <h2>Start with a common screen</h2>
-                    <p>
-                        Switch sizes to see how a page adapts, then use a custom
-                        width to check your own breakpoint.
-                    </p>
-                </section>
+                <BreakpointGuide
+                    currentWidth={activeViewport.width}
+                    onTestWidth={handleTestWidth}
+                />
             </main>
         </div>
     );

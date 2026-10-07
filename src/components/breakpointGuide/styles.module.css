@@ -1,0 +1,158 @@
+.breakpointGuide {
+    margin-top: 28px;
+    border-top: 1px solid var(--border);
+    padding: 24px 0 0;
+    scroll-margin-top: 90px;
+
+    .heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 15px;
+
+        h2 {
+            font-size: 18px;
+            font-weight: 730;
+            letter-spacing: -0.025em;
+        }
+
+        p {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+    }
+
+    .currentWidth {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--accent);
+        font-size: 11px;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    .guideGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .guideCard {
+        display: grid;
+        min-width: 0;
+        gap: 11px;
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        background: var(--panel);
+        padding: 13px;
+
+        h3 {
+            font-size: 15px;
+            font-weight: 700;
+        }
+    }
+
+    .cardTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 7px;
+    }
+
+    .step {
+        color: var(--warm);
+        font-size: 10px;
+        font-weight: 750;
+        letter-spacing: 0.08em;
+    }
+
+    .range {
+        color: var(--faint);
+        font-size: 9px;
+        text-align: right;
+    }
+
+    .testButtons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .beforeButton,
+    .boundaryButton,
+    .activeButton {
+        display: inline-flex;
+        min-height: 34px;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        border: 1px solid var(--border-bright);
+        border-radius: 7px;
+        background: var(--panel-soft);
+        padding: 0 6px;
+        color: var(--muted);
+        font-size: 10px;
+        font-variant-numeric: tabular-nums;
+        font-weight: 650;
+        white-space: nowrap;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        &:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgb(141 231 209 / 9%);
+        }
+
+        svg {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    .boundaryButton {
+        border-color: #44756d;
+        color: var(--accent);
+    }
+
+    .activeButton {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: var(--accent-ink);
+    }
+
+    @media (max-width: 900px) {
+        .guideGrid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 540px) {
+        .heading {
+            align-items: flex-start;
+        }
+
+        .guideGrid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .guideCard {
+            grid-template-columns: 1fr auto;
+            align-items: center;
+        }
+
+        .cardTop {
+            grid-column: 1 / -1;
+        }
+
+        .testButtons {
+            grid-column: 1 / -1;
+        }
+    }
+}
