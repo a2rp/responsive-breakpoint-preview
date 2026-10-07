@@ -1,23 +1,9 @@
 import styles from "./App.module.css";
+import SiteHeader from "./components/siteHeader/index.jsx";
 
 const App = () => (
     <div className={styles.appShell}>
-        <header className={styles.header}>
-            <a className={styles.brand} href="#top" aria-label="Breakframe home">
-                <span className={styles.brandMark} aria-hidden="true">
-                    B
-                </span>
-                <span>Breakframe</span>
-            </a>
-            <a
-                className={styles.repositoryLink}
-                href="https://github.com/a2rp/responsive-breakpoint-preview"
-                target="_blank"
-                rel="noreferrer"
-            >
-                Repository
-            </a>
-        </header>
+        <SiteHeader />
         <main className={styles.pageContent} id="top">
             <section className={styles.introduction}>
                 <h1>Test the width. See what changes.</h1>

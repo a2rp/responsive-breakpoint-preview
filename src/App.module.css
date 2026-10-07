@@ -5,61 +5,6 @@
         var(--canvas);
     color: var(--ink);
 
-    .header {
-        position: fixed;
-        z-index: 20;
-        top: 0;
-        right: 0;
-        left: 0;
-        display: flex;
-        height: 68px;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid var(--border);
-        background: rgb(13 20 33 / 94%);
-        padding: 0 clamp(18px, 4vw, 64px);
-        backdrop-filter: blur(16px);
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            font-weight: 750;
-            letter-spacing: -0.03em;
-        }
-
-    .brandMark {
-            display: grid;
-            width: 34px;
-            height: 34px;
-            place-items: center;
-            border: 1px solid #44756d;
-            border-radius: 10px;
-            background: #1c393c;
-            color: var(--accent);
-            font-size: 15px;
-        }
-
-    .repositoryLink {
-            display: inline-flex;
-            min-height: 38px;
-            align-items: center;
-            border: 1px solid var(--border-bright);
-            border-radius: 9px;
-            padding: 0 13px;
-            color: var(--ink);
-            font-size: 13px;
-            font-weight: 650;
-            transition: border-color 140ms ease, box-shadow 140ms ease;
-
-            &:hover {
-                border-color: var(--accent);
-                box-shadow: 0 0 0 2px rgb(141 231 209 / 12%);
-            }
-        }
-    }
-
     .pageContent {
         width: min(1380px, 100% - 48px);
         margin: 0 auto;
@@ -100,16 +45,6 @@
         .pageContent {
             width: calc(100% - 28px);
             padding-top: 96px;
-        }
-
-        .header {
-            height: 62px;
-            padding-inline: 14px;
-        }
-
-        .repositoryLink {
-            min-height: 36px;
-            padding-inline: 10px;
         }
     }
 }

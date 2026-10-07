@@ -1,0 +1,153 @@
+.siteHeader {
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid var(--border);
+    background: rgb(13 20 33 / 96%);
+    backdrop-filter: blur(16px);
+
+    .headerInner {
+        display: grid;
+        width: min(1380px, 100% - 48px);
+        height: 68px;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .brand {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: 750;
+        letter-spacing: -0.03em;
+    }
+
+    .brandMark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 1px solid #44756d;
+        border-radius: 10px;
+        background: #1c393c;
+        color: var(--accent);
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .navigation {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        a {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 650;
+            transition: color 140ms ease;
+
+            &:hover {
+                color: var(--accent);
+            }
+        }
+    }
+
+    .headerActions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 9px;
+    }
+
+    .repositoryLink,
+    .menuButton {
+        display: inline-flex;
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--border-bright);
+        border-radius: 9px;
+        background: transparent;
+        color: var(--ink);
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        &:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgb(141 231 209 / 12%);
+        }
+    }
+
+    .repositoryLink {
+        gap: 8px;
+        padding: 0 12px;
+        font-size: 13px;
+        font-weight: 650;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .menuButton {
+        display: none;
+        width: 38px;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        .headerInner {
+            width: calc(100% - 28px);
+            height: 62px;
+            grid-template-columns: 1fr auto;
+        }
+
+        .navigation {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 14px;
+            left: 14px;
+            display: none;
+            align-items: stretch;
+            gap: 0;
+            border: 1px solid var(--border-bright);
+            border-radius: 12px;
+            background: var(--panel);
+            padding: 6px;
+            box-shadow: 0 14px 40px rgb(0 0 0 / 30%);
+
+            a {
+                min-height: 44px;
+                align-content: center;
+                border-radius: 8px;
+                padding: 0 12px;
+            }
+        }
+
+        .navigationOpen {
+            display: grid;
+        }
+
+        .menuButton {
+            display: inline-flex;
+        }
+
+        .repositoryLink {
+            min-height: 36px;
+            gap: 6px;
+            padding-inline: 9px;
+        }
+    }
+}
