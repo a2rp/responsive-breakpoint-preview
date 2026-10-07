@@ -3,6 +3,7 @@ export const previewPages = [
         id: "open-tide",
         name: "Open Tide Retreat",
         image: "coast-forest.jpg",
+        imageAlt: "Green trees frame a quiet shoreline.",
         eyebrow: "COASTAL STAYS",
         title: "A slower kind of escape.",
         description:
@@ -14,6 +15,7 @@ export const previewPages = [
         id: "common-table",
         name: "Common Table Cafe",
         image: "cafe-table.jpg",
+        imageAlt: "Coffee rests on a wooden table in a sunlit cafe.",
         eyebrow: "COFFEE AND COMPANY",
         title: "Stay for the second cup.",
         description:
@@ -109,7 +111,7 @@ export const createPreviewHtml = (pageId, baseUrl) => {
             <p class="description">${page.description}</p>
             <a class="primary-action" href="#details">${page.action}</a>
           </div>
-          <img class="hero-image" src="${imageUrl}" alt="A quiet place framed by trees and open water" width="960" height="840">
+          <img class="hero-image" src="${imageUrl}" alt="${page.imageAlt}" width="960" height="840">
         </section>
         <section class="features" id="details" aria-label="What to expect">
           ${featureCards}
