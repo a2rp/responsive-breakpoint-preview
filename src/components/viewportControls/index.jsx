@@ -103,7 +103,10 @@ const ViewportControls = ({
                     const Icon = icons[viewport.kind] ?? LuMonitor;
 
                     return (
-                        <div className={styles.viewportRow} key={viewport.id}>
+                        <div
+                            className={`${styles.viewportRow} ${viewport.kind === "custom" ? styles.viewportRowWithAction : ""}`}
+                            key={viewport.id}
+                        >
                             <button
                                 className={`${styles.viewportButton} ${activeId === viewport.id ? styles.viewportActive : ""}`}
                                 type="button"

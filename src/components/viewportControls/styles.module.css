@@ -44,9 +44,13 @@
 
     .viewportRow {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 31px;
+        grid-template-columns: minmax(0, 1fr);
         align-items: center;
         gap: 4px;
+    }
+
+    .viewportRowWithAction {
+        grid-template-columns: minmax(0, 1fr) 31px;
     }
 
     .viewportButton {
