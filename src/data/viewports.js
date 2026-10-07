@@ -9,6 +9,17 @@ export const defaultViewports = [
 export const customViewportStorageKey = "breakframe-custom-viewports";
 export const customViewportLimit = 8;
 
+export const breakpointGuides = [
+    { id: "small", label: "Phone", width: 480, range: "320 to 479 px" },
+    { id: "medium", label: "Tablet", width: 768, range: "480 to 767 px" },
+    { id: "large", label: "Laptop", width: 1024, range: "768 to 1023 px" },
+    { id: "wide", label: "Desktop", width: 1280, range: "1024 px and up" },
+];
+
+export const getBreakpointForWidth = (width) =>
+    breakpointGuides.find((breakpoint) => width < breakpoint.width) ??
+    breakpointGuides[breakpointGuides.length - 1];
+
 export const readCustomViewports = () => {
     try {
         const stored = JSON.parse(localStorage.getItem(customViewportStorageKey));

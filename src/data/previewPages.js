@@ -65,14 +65,14 @@ export const createPreviewHtml = (pageId, baseUrl) => {
       .feature-number { color: #b65c42; font-size: 10px; font-weight: 800; }
       .feature-card h2 { margin: 16px 0 5px; font-family: Georgia, serif; font-size: 18px; font-weight: 400; }
       .feature-card p { margin: 0; color: #728078; font-size: 11px; }
-      @media (max-width: 920px) {
+      @media (max-width: 1024px) {
         .topbar { padding-inline: 5%; }
         .navigation { gap: 15px; }
         .hero { grid-template-columns: 1fr 1fr; gap: 4%; padding-inline: 5%; }
         h1 { font-size: clamp(36px, 6vw, 54px); }
         .features { padding-inline: 5%; }
       }
-      @media (max-width: 640px) {
+      @media (max-width: 768px) {
         .topbar { gap: 12px; padding: 16px 5%; }
         .navigation { display: none; }
         .top-action { padding: 8px 10px; font-size: 10px; }
@@ -80,9 +80,15 @@ export const createPreviewHtml = (pageId, baseUrl) => {
         h1 { max-width: 340px; font-size: 45px; }
         .description { margin: 13px 0 18px; font-size: 13px; }
         .hero-image { aspect-ratio: 1.45; }
-        .features { grid-template-columns: 1fr; gap: 0; padding: 0 6% 34px; }
+        .features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; padding: 0 6% 34px; }
         .feature-card { min-height: auto; padding: 15px 4px; }
         .feature-card h2 { margin-top: 8px; }
+      }
+      @media (max-width: 480px) {
+        .topbar { padding-block: 14px; }
+        .hero { padding-top: 30px; }
+        h1 { font-size: 42px; }
+        .features { grid-template-columns: 1fr; }
       }
     </style>
   </head>
