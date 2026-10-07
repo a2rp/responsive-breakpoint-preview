@@ -1,0 +1,92 @@
+.dialogBackdrop {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgb(4 8 15 / 72%);
+    padding: 18px;
+    backdrop-filter: blur(5px);
+}
+
+.confirmationDialog {
+    width: min(440px, 100%);
+    border: 1px solid var(--border-bright);
+    border-radius: 15px;
+    background: var(--panel);
+    padding: 20px;
+    box-shadow: 0 26px 80px rgb(0 0 0 / 45%);
+
+    .dialogHeading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+
+        h2 {
+            font-size: 18px;
+            font-weight: 720;
+            letter-spacing: -0.025em;
+        }
+    }
+
+    > p {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .closeButton {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        color: var(--muted);
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .dialogActions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 9px;
+        margin-top: 22px;
+    }
+
+    .cancelButton,
+    .confirmButton {
+        min-height: 38px;
+        border: 1px solid var(--border-bright);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        padding: 0 13px;
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 680;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        &:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgb(141 231 209 / 9%);
+        }
+    }
+
+    .confirmButton {
+        border-color: #8a4b46;
+        background: #5a302f;
+        color: #ffe7e3;
+
+        &:hover {
+            border-color: var(--danger);
+            box-shadow: 0 0 0 2px rgb(255 141 135 / 12%);
+        }
+    }
+}

@@ -5,8 +5,10 @@ import {
     LuPlus,
     LuSmartphone,
     LuTablet,
+    LuTrash2,
     LuX,
 } from "react-icons/lu";
+import ConfirmationDialog from "../confirmationDialog/index.jsx";
 import { customViewportLimit, defaultViewports } from "../../data/viewports.js";
 import styles from "./styles.module.css";
 
@@ -22,6 +24,7 @@ const ViewportControls = ({
     activeId,
     customViewports,
     onAddCustom,
+    onRemoveCustom,
     onSelect,
 }) => {
     const [formOpen, setFormOpen] = useState(false);
@@ -29,6 +32,7 @@ const ViewportControls = ({
     const [width, setWidth] = useState("414");
     const [height, setHeight] = useState("896");
     const [error, setError] = useState("");
+    const [removeTarget, setRemoveTarget] = useState(null);
     const allViewports = [...defaultViewports, ...customViewports];
     const limitReached = customViewports.length >= customViewportLimit;
 
@@ -99,26 +103,37 @@ const ViewportControls = ({
                     const Icon = icons[viewport.kind] ?? LuMonitor;
 
                     return (
-                        <button
-                            className={`${styles.viewportButton} ${activeId === viewport.id ? styles.viewportActive : ""}`}
-                            key={viewport.id}
-                            type="button"
-                            aria-pressed={activeId === viewport.id}
-                            onClick={() => onSelect(viewport)}
-                        >
-                            <span className={styles.viewportIcon} aria-hidden="true">
-                                <Icon />
-                            </span>
-                            <span className={styles.viewportText}>
-                                <span className={styles.viewportName}>{viewport.name}</span>
-                                <span className={styles.dimensions}>
-                                    {viewport.width} × {viewport.height}
+                        <div className={styles.viewportRow} key={viewport.id}>
+                            <button
+                                className={`${styles.viewportButton} ${activeId === viewport.id ? styles.viewportActive : ""}`}
+                                type="button"
+                                aria-pressed={activeId === viewport.id}
+                                onClick={() => onSelect(viewport)}
+                            >
+                                <span className={styles.viewportIcon} aria-hidden="true">
+                                    <Icon />
                                 </span>
-                            </span>
-                            {activeId === viewport.id && (
-                                <span className={styles.selectedDot} aria-label="Selected" />
+                                <span className={styles.viewportText}>
+                                    <span className={styles.viewportName}>{viewport.name}</span>
+                                    <span className={styles.dimensions}>
+                                        {viewport.width} × {viewport.height}
+                                    </span>
+                                </span>
+                                {activeId === viewport.id && (
+                                    <span className={styles.selectedDot} aria-label="Selected" />
+                                )}
+                            </button>
+                            {viewport.kind === "custom" && (
+                                <button
+                                    className={styles.removeButton}
+                                    type="button"
+                                    aria-label={`Remove ${viewport.name}`}
+                                    onClick={() => setRemoveTarget(viewport)}
+                                >
+                                    <LuTrash2 aria-hidden="true" />
+                                </button>
                             )}
-                        </button>
+                        </div>
                     );
                 })}
             </div>
@@ -192,6 +207,24 @@ const ViewportControls = ({
                     </p>
                 </form>
             )}
+            <ConfirmationDialog
+                open={Boolean(removeTarget)}
+                title={`Remove ${removeTarget?.name ?? "custom size"}?`}
+                description={
+                    removeTarget
+                        ? `This removes the ${removeTarget.width} by ${removeTarget.height} pixel size from this browser.`
+                        : "This removes the custom size from this browser."
+                }
+                cancelLabel="Keep size"
+                confirmLabel="Remove size"
+                onCancel={() => setRemoveTarget(null)}
+                onConfirm={() => {
+                    if (removeTarget) {
+                        onRemoveCustom(removeTarget.id);
+                    }
+                    setRemoveTarget(null);
+                }}
+            />
         </section>
     );
 };
