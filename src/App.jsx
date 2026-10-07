@@ -5,6 +5,7 @@ import ViewportControls from "./components/viewportControls/index.jsx";
 import PreviewWorkspace from "./components/previewWorkspace/index.jsx";
 import BreakpointGuide from "./components/breakpointGuide/index.jsx";
 import SiteFooter from "./components/siteFooter/index.jsx";
+import BackToTop from "./components/backToTop/index.jsx";
 import {
     customViewportStorageKey,
     defaultViewports,
@@ -90,6 +91,7 @@ const App = () => {
                 />
             </main>
             <SiteFooter />
+            <BackToTop />
         </div>
     );
 };
