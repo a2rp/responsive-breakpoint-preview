@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 import SiteHeader from "./components/siteHeader/index.jsx";
 import ViewportControls from "./components/viewportControls/index.jsx";
+import PreviewFrame from "./components/previewFrame/index.jsx";
 import {
     customViewportStorageKey,
     defaultViewports,
     readCustomViewports,
 } from "./data/viewports.js";
+import { createPreviewHtml, previewPages } from "./data/previewPages.js";
 
 const App = () => {
     const [customViewports, setCustomViewports] = useState(readCustomViewports);
     const [activeViewport, setActiveViewport] = useState(defaultViewports[1]);
+    const activePage = previewPages[0];
 
     useEffect(() => {
         try {
@@ -64,9 +67,12 @@ const App = () => {
                                 {activeViewport.width} × {activeViewport.height}
                             </span>
                         </div>
-                        <div className={styles.previewPlaceholder}>
-                            <p>Select a size to prepare its live preview.</p>
-                        </div>
+                        <PreviewFrame
+                            html={createPreviewHtml(activePage.id, import.meta.env.BASE_URL)}
+                            pageName={activePage.name}
+                            width={activeViewport.width}
+                            height={activeViewport.height}
+                        />
                     </section>
                 </div>
                 <section className={styles.guide} id="guide">
