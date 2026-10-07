@@ -1,0 +1,233 @@
+.viewportControls {
+    display: grid;
+    align-content: start;
+    gap: 17px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--panel);
+    padding: 18px;
+
+    .heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+            font-size: 15px;
+            font-weight: 720;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            margin-top: 2px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+    }
+
+    .count {
+        display: grid;
+        width: 26px;
+        height: 26px;
+        place-items: center;
+        border-radius: 7px;
+        background: var(--panel-raised);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 650;
+    }
+
+    .viewportList {
+        display: grid;
+        gap: 7px;
+    }
+
+    .viewportButton {
+        display: grid;
+        min-height: 59px;
+        grid-template-columns: 34px 1fr 8px;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background: transparent;
+        padding: 8px 10px;
+        text-align: left;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        &:hover {
+            border-color: var(--border-bright);
+            box-shadow: inset 0 0 0 1px rgb(255 255 255 / 2%);
+        }
+    }
+
+    .viewportActive {
+        border-color: #47786e;
+        background: #1c3438;
+        box-shadow: inset 3px 0 0 var(--accent);
+
+        &:hover {
+            border-color: #5d9688;
+            box-shadow: inset 3px 0 0 var(--accent), 0 0 0 2px rgb(141 231 209 / 8%);
+        }
+    }
+
+    .viewportIcon {
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--panel-soft);
+        color: var(--muted);
+
+        svg {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    .viewportActive .viewportIcon {
+        border-color: #44756d;
+        color: var(--accent);
+    }
+
+    .viewportText {
+        display: grid;
+        gap: 1px;
+    }
+
+    .viewportName {
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 650;
+    }
+
+    .dimensions {
+        color: var(--muted);
+        font-size: 11px;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .selectedDot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 3px rgb(141 231 209 / 10%);
+    }
+
+    .addButton,
+    .saveButton {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid #4e9988;
+        border-radius: 9px;
+        background: var(--accent);
+        color: var(--accent-ink);
+        font-size: 12px;
+        font-weight: 720;
+        transition: border-color 140ms ease, box-shadow 140ms ease;
+
+        &:hover:not(:disabled) {
+            border-color: #b7f5e5;
+            box-shadow: 0 0 0 3px rgb(141 231 209 / 14%);
+        }
+
+        &:disabled {
+            opacity: 0.55;
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .customForm {
+        display: grid;
+        gap: 12px;
+        border: 1px solid var(--border-bright);
+        border-radius: 11px;
+        background: var(--panel-soft);
+        padding: 12px;
+    }
+
+    .formHeading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+            font-size: 13px;
+            font-weight: 700;
+        }
+    }
+
+    .closeButton {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: 7px;
+        background: transparent;
+        color: var(--muted);
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .field {
+        display: grid;
+        gap: 5px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 620;
+
+        input {
+            width: 100%;
+            height: 37px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            background: var(--panel);
+            padding: 0 9px;
+            color: var(--ink);
+            font-size: 12px;
+            font-variant-numeric: tabular-nums;
+
+            &:focus-visible {
+                border-color: var(--accent);
+                box-shadow: 0 0 0 3px rgb(141 231 209 / 12%);
+            }
+        }
+    }
+
+    .dimensionFields {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .error {
+        color: var(--danger);
+        font-size: 11px;
+    }
+
+    .saveButton {
+        min-height: 36px;
+    }
+
+    .limitText {
+        color: var(--faint);
+        font-size: 10px;
+        text-align: center;
+    }
+}
