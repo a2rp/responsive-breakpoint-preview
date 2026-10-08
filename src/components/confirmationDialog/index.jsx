@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { LuX } from "react-icons/lu";
 import styles from "./styles.module.css";
 
@@ -66,7 +67,7 @@ const ConfirmationDialog = ({
         return null;
     }
 
-    return (
+    return createPortal(
         <div className={styles.dialogBackdrop} onMouseDown={handleBackdropClick}>
             <div
                 className={styles.confirmationDialog}
@@ -107,7 +108,8 @@ const ConfirmationDialog = ({
                     </button>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body,
     );
 };
 
