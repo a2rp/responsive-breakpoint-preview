@@ -69,12 +69,18 @@ const SiteHeader = () => {
                     <button
                         className={styles.menuButton}
                         type="button"
-                        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+                        aria-label={
+                            menuOpen ? "Close navigation" : "Open navigation"
+                        }
                         aria-expanded={menuOpen}
                         aria-controls="main-navigation"
                         onClick={() => setMenuOpen((open) => !open)}
                     >
-                        {menuOpen ? <LuX aria-hidden="true" /> : <LuMenu aria-hidden="true" />}
+                        {menuOpen ? (
+                            <LuX aria-hidden="true" />
+                        ) : (
+                            <LuMenu aria-hidden="true" />
+                        )}
                     </button>
                 </div>
             </div>

@@ -7,9 +7,11 @@ import styles from "./styles.module.css";
 
 const PreviewWorkspace = ({ viewport, onViewportChange }) => {
     const [pageId, setPageId] = useState(previewPages[0].id);
-    const page = previewPages.find((item) => item.id === pageId) ?? previewPages[0];
+    const page =
+        previewPages.find((item) => item.id === pageId) ?? previewPages[0];
     const currentBreakpoint = getBreakpointForWidth(viewport.width);
-    const nextOrientation = viewport.width >= viewport.height ? "portrait" : "landscape";
+    const nextOrientation =
+        viewport.width >= viewport.height ? "portrait" : "landscape";
 
     const handleWidthChange = (event) => {
         onViewportChange({ ...viewport, width: Number(event.target.value) });
@@ -28,7 +30,11 @@ const PreviewWorkspace = ({ viewport, onViewportChange }) => {
     };
 
     return (
-        <section className={styles.previewWorkspace} id="preview" aria-labelledby="preview-title">
+        <section
+            className={styles.previewWorkspace}
+            id="preview"
+            aria-labelledby="preview-title"
+        >
             <div className={styles.workspaceHeading}>
                 <div>
                     <h2 id="preview-title">Live preview</h2>
@@ -56,8 +62,14 @@ const PreviewWorkspace = ({ viewport, onViewportChange }) => {
                     </select>
                 </label>
                 <div className={styles.orientationInfo}>
-                    <span>{viewport.width} × {viewport.height} px</span>
-                    <span>{viewport.width >= viewport.height ? "Landscape" : "Portrait"}</span>
+                    <span>
+                        {viewport.width} × {viewport.height} px
+                    </span>
+                    <span>
+                        {viewport.width >= viewport.height
+                            ? "Landscape"
+                            : "Portrait"}
+                    </span>
                 </div>
                 <button
                     className={styles.rotateButton}
@@ -73,7 +85,10 @@ const PreviewWorkspace = ({ viewport, onViewportChange }) => {
             <div className={styles.rangeControls}>
                 <label className={styles.rangeField} htmlFor="viewport-width">
                     <span>
-                        Width <output htmlFor="viewport-width">{viewport.width} px</output>
+                        Width{" "}
+                        <output htmlFor="viewport-width">
+                            {viewport.width} px
+                        </output>
                     </span>
                     <input
                         id="viewport-width"
@@ -88,7 +103,10 @@ const PreviewWorkspace = ({ viewport, onViewportChange }) => {
                 </label>
                 <label className={styles.rangeField} htmlFor="viewport-height">
                     <span>
-                        Height <output htmlFor="viewport-height">{viewport.height} px</output>
+                        Height{" "}
+                        <output htmlFor="viewport-height">
+                            {viewport.height} px
+                        </output>
                     </span>
                     <input
                         id="viewport-height"
@@ -110,7 +128,8 @@ const PreviewWorkspace = ({ viewport, onViewportChange }) => {
                 height={viewport.height}
             />
             <p className={styles.frameNote}>
-                Frame is scaled to fit. Its page keeps the selected pixel dimensions.
+                Frame is scaled to fit. Its page keeps the selected pixel
+                dimensions.
             </p>
         </section>
     );

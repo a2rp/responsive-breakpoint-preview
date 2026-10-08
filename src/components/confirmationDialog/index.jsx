@@ -68,7 +68,10 @@ const ConfirmationDialog = ({
     }
 
     return createPortal(
-        <div className={styles.dialogBackdrop} onMouseDown={handleBackdropClick}>
+        <div
+            className={styles.dialogBackdrop}
+            onMouseDown={handleBackdropClick}
+        >
             <div
                 className={styles.confirmationDialog}
                 ref={dialogRef}

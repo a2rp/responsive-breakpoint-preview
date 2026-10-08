@@ -55,12 +55,16 @@ const ViewportControls = ({
             nextHeight < 360 ||
             nextHeight > 1920
         ) {
-            setError("Use a width from 320 to 2560 and a height from 360 to 1920.");
+            setError(
+                "Use a width from 320 to 2560 and a height from 360 to 1920.",
+            );
             return;
         }
 
         if (limitReached) {
-            setError(`You have reached the limit of ${customViewportLimit} custom sizes.`);
+            setError(
+                `You have reached the limit of ${customViewportLimit} custom sizes.`,
+            );
             return;
         }
 
@@ -89,7 +93,10 @@ const ViewportControls = ({
     };
 
     return (
-        <section className={styles.viewportControls} aria-labelledby="sizes-title">
+        <section
+            className={styles.viewportControls}
+            aria-labelledby="sizes-title"
+        >
             <div className={styles.heading}>
                 <div>
                     <h2 id="sizes-title">Viewport sizes</h2>
@@ -98,7 +105,11 @@ const ViewportControls = ({
                 <span className={styles.count}>{allViewports.length}</span>
             </div>
 
-            <div className={styles.viewportList} role="group" aria-label="Available viewport sizes">
+            <div
+                className={styles.viewportList}
+                role="group"
+                aria-label="Available viewport sizes"
+            >
                 {allViewports.map((viewport) => {
                     const Icon = icons[viewport.kind] ?? LuMonitor;
 
@@ -113,17 +124,25 @@ const ViewportControls = ({
                                 aria-pressed={activeId === viewport.id}
                                 onClick={() => onSelect(viewport)}
                             >
-                                <span className={styles.viewportIcon} aria-hidden="true">
+                                <span
+                                    className={styles.viewportIcon}
+                                    aria-hidden="true"
+                                >
                                     <Icon />
                                 </span>
                                 <span className={styles.viewportText}>
-                                    <span className={styles.viewportName}>{viewport.name}</span>
+                                    <span className={styles.viewportName}>
+                                        {viewport.name}
+                                    </span>
                                     <span className={styles.dimensions}>
                                         {viewport.width} × {viewport.height}
                                     </span>
                                 </span>
                                 {activeId === viewport.id && (
-                                    <span className={styles.selectedDot} aria-label="Selected" />
+                                    <span
+                                        className={styles.selectedDot}
+                                        aria-label="Selected"
+                                    />
                                 )}
                             </button>
                             {viewport.kind === "custom" && (
@@ -176,7 +195,10 @@ const ViewportControls = ({
                         />
                     </label>
                     <div className={styles.dimensionFields}>
-                        <label className={styles.field} htmlFor="custom-size-width">
+                        <label
+                            className={styles.field}
+                            htmlFor="custom-size-width"
+                        >
                             Width
                             <input
                                 id="custom-size-width"
@@ -185,10 +207,15 @@ const ViewportControls = ({
                                 max="2560"
                                 step="1"
                                 value={width}
-                                onChange={(event) => setWidth(event.target.value)}
+                                onChange={(event) =>
+                                    setWidth(event.target.value)
+                                }
                             />
                         </label>
-                        <label className={styles.field} htmlFor="custom-size-height">
+                        <label
+                            className={styles.field}
+                            htmlFor="custom-size-height"
+                        >
                             Height
                             <input
                                 id="custom-size-height"
@@ -197,16 +224,23 @@ const ViewportControls = ({
                                 max="1920"
                                 step="1"
                                 value={height}
-                                onChange={(event) => setHeight(event.target.value)}
+                                onChange={(event) =>
+                                    setHeight(event.target.value)
+                                }
                             />
                         </label>
                     </div>
-                    {error && <p className={styles.error} role="alert">{error}</p>}
+                    {error && (
+                        <p className={styles.error} role="alert">
+                            {error}
+                        </p>
+                    )}
                     <button className={styles.saveButton} type="submit">
                         Save size
                     </button>
                     <p className={styles.limitText}>
-                        {customViewports.length} of {customViewportLimit} custom sizes saved on this device.
+                        {customViewports.length} of {customViewportLimit} custom
+                        sizes saved on this device.
                     </p>
                 </form>
             )}

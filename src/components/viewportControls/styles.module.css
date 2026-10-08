@@ -64,7 +64,9 @@
         background: transparent;
         padding: 8px 10px;
         text-align: left;
-        transition: border-color 140ms ease, box-shadow 140ms ease;
+        transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease;
 
         &:hover {
             border-color: var(--border-bright);
@@ -81,7 +83,9 @@
         border-radius: 8px;
         background: transparent;
         color: var(--faint);
-        transition: border-color 140ms ease, box-shadow 140ms ease;
+        transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease;
 
         &:hover {
             border-color: #7c4644;
@@ -102,7 +106,9 @@
 
         &:hover {
             border-color: #5d9688;
-            box-shadow: inset 3px 0 0 var(--accent), 0 0 0 2px rgb(141 231 209 / 8%);
+            box-shadow:
+                inset 3px 0 0 var(--accent),
+                0 0 0 2px rgb(141 231 209 / 8%);
         }
     }
 
@@ -165,7 +171,9 @@
         color: var(--accent-ink);
         font-size: 12px;
         font-weight: 720;
-        transition: border-color 140ms ease, box-shadow 140ms ease;
+        transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease;
 
         &:hover:not(:disabled) {
             border-color: #b7f5e5;

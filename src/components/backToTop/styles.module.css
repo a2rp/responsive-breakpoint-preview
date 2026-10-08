@@ -12,11 +12,15 @@
     background: #18312e;
     color: var(--accent);
     box-shadow: 0 8px 24px rgb(0 0 0 / 28%);
-    transition: border-color 140ms ease, box-shadow 140ms ease;
+    transition:
+        border-color 140ms ease,
+        box-shadow 140ms ease;
 
     &:hover {
         border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgb(141 231 209 / 14%), 0 8px 24px rgb(0 0 0 / 28%);
+        box-shadow:
+            0 0 0 3px rgb(141 231 209 / 14%),
+            0 8px 24px rgb(0 0 0 / 28%);
     }
 
     svg {

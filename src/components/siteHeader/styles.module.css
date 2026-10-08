@@ -76,7 +76,9 @@
         border-radius: 9px;
         background: transparent;
         color: var(--ink);
-        transition: border-color 140ms ease, box-shadow 140ms ease;
+        transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease;
 
         &:hover {
             border-color: var(--accent);

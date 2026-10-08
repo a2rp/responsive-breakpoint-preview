@@ -4,13 +4,7 @@ import {
     FaLinkedinIn,
     FaYoutube,
 } from "react-icons/fa6";
-import {
-    LuCoffee,
-    LuCode,
-    LuGlobe,
-    LuHeart,
-    LuMail,
-} from "react-icons/lu";
+import { LuCoffee, LuCode, LuGlobe, LuHeart, LuMail } from "react-icons/lu";
 import styles from "./styles.module.css";
 
 const footerLinks = [
@@ -73,20 +67,33 @@ const SiteFooter = () => (
                     />
                 </a>
                 <p>
-                    © {new Date().getFullYear()} {" "}
-                    <a href="https://github.com/a2rp" target="_blank" rel="noreferrer">
+                    © {new Date().getFullYear()}{" "}
+                    <a
+                        href="https://github.com/a2rp"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         Ashish Ranjan
                     </a>
                     . All rights reserved.
                 </p>
             </div>
-            <nav className={styles.footerLinks} aria-label="Profile and support links">
+            <nav
+                className={styles.footerLinks}
+                aria-label="Profile and support links"
+            >
                 {footerLinks.map(({ label, href, icon: Icon }) => (
                     <a
                         href={href}
                         key={label}
-                        target={href.startsWith("mailto:") ? undefined : "_blank"}
-                        rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
+                        target={
+                            href.startsWith("mailto:") ? undefined : "_blank"
+                        }
+                        rel={
+                            href.startsWith("mailto:")
+                                ? undefined
+                                : "noreferrer"
+                        }
                     >
                         <Icon aria-hidden="true" />
                         {label}

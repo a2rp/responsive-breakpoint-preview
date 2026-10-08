@@ -1,9 +1,33 @@
 export const defaultViewports = [
-    { id: "phone-375", name: "Phone SE", width: 375, height: 667, kind: "phone" },
+    {
+        id: "phone-375",
+        name: "Phone SE",
+        width: 375,
+        height: 667,
+        kind: "phone",
+    },
     { id: "phone-390", name: "Phone", width: 390, height: 844, kind: "phone" },
-    { id: "tablet-768", name: "Tablet", width: 768, height: 1024, kind: "tablet" },
-    { id: "laptop-1280", name: "Laptop", width: 1280, height: 800, kind: "laptop" },
-    { id: "desktop-1440", name: "Desktop", width: 1440, height: 900, kind: "desktop" },
+    {
+        id: "tablet-768",
+        name: "Tablet",
+        width: 768,
+        height: 1024,
+        kind: "tablet",
+    },
+    {
+        id: "laptop-1280",
+        name: "Laptop",
+        width: 1280,
+        height: 800,
+        kind: "laptop",
+    },
+    {
+        id: "desktop-1440",
+        name: "Desktop",
+        width: 1440,
+        height: 900,
+        kind: "desktop",
+    },
 ];
 
 export const customViewportStorageKey = "breakframe-custom-viewports";
@@ -22,7 +46,9 @@ export const getBreakpointForWidth = (width) =>
 
 export const readCustomViewports = () => {
     try {
-        const stored = JSON.parse(localStorage.getItem(customViewportStorageKey));
+        const stored = JSON.parse(
+            localStorage.getItem(customViewportStorageKey),
+        );
 
         if (!Array.isArray(stored)) {
             return [];

@@ -28,7 +28,10 @@ const App = () => {
     }, [customViewports]);
 
     const handleAddCustom = (viewport) => {
-        setCustomViewports((currentViewports) => [viewport, ...currentViewports]);
+        setCustomViewports((currentViewports) => [
+            viewport,
+            ...currentViewports,
+        ]);
         setActiveViewport(viewport);
     };
 
@@ -53,7 +56,9 @@ const App = () => {
 
     const handleTestWidth = (width) => {
         handleViewportChange({ ...activeViewport, width });
-        document.getElementById("preview")?.scrollIntoView({ behavior: "smooth" });
+        document
+            .getElementById("preview")
+            ?.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
@@ -63,8 +68,8 @@ const App = () => {
                 <section className={styles.introduction}>
                     <h1>Test the width. See what changes.</h1>
                     <p>
-                        Preview a sample page at the screen sizes that matter to your
-                        layout.
+                        Preview a sample page at the screen sizes that matter to
+                        your layout.
                     </p>
                 </section>
                 <div className={styles.workspace}>

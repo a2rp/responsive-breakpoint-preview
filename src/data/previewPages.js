@@ -21,12 +21,17 @@ export const previewPages = [
         description:
             "A neighborhood cafe for careful coffee, warm bread, and unhurried conversations.",
         action: "See the menu",
-        cards: ["Coffee, made slowly", "A seat for everyone", "Something fresh daily"],
+        cards: [
+            "Coffee, made slowly",
+            "A seat for everyone",
+            "Something fresh daily",
+        ],
     },
 ];
 
 export const createPreviewHtml = (pageId, baseUrl) => {
-    const page = previewPages.find((item) => item.id === pageId) ?? previewPages[0];
+    const page =
+        previewPages.find((item) => item.id === pageId) ?? previewPages[0];
     const imageUrl = `${baseUrl}images/${page.image}`;
     const featureCards = page.cards
         .map(

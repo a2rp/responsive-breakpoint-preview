@@ -71,7 +71,9 @@
         color: var(--ink);
         font-size: 12px;
         font-weight: 680;
-        transition: border-color 140ms ease, box-shadow 140ms ease;
+        transition:
+            border-color 140ms ease,
+            box-shadow 140ms ease;
 
         &:hover {
             border-color: var(--accent);

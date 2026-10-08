@@ -3,7 +3,11 @@ import { breakpointGuides } from "../../data/viewports.js";
 import styles from "./styles.module.css";
 
 const BreakpointGuide = ({ currentWidth, onTestWidth }) => (
-    <section className={styles.breakpointGuide} id="guide" aria-labelledby="guide-title">
+    <section
+        className={styles.breakpointGuide}
+        id="guide"
+        aria-labelledby="guide-title"
+    >
         <div className={styles.heading}>
             <div>
                 <h2 id="guide-title">Check a breakpoint</h2>
@@ -23,7 +27,9 @@ const BreakpointGuide = ({ currentWidth, onTestWidth }) => (
                     <article className={styles.guideCard} key={breakpoint.id}>
                         <div className={styles.cardTop}>
                             <span className={styles.step}>0{index + 1}</span>
-                            <span className={styles.range}>{breakpoint.range}</span>
+                            <span className={styles.range}>
+                                {breakpoint.range}
+                            </span>
                         </div>
                         <h3>{breakpoint.label}</h3>
                         <div className={styles.testButtons}>
@@ -38,7 +44,11 @@ const BreakpointGuide = ({ currentWidth, onTestWidth }) => (
                                 {beforeWidth} px
                             </button>
                             <button
-                                className={currentAtBoundary ? styles.activeButton : styles.boundaryButton}
+                                className={
+                                    currentAtBoundary
+                                        ? styles.activeButton
+                                        : styles.boundaryButton
+                                }
                                 type="button"
                                 aria-label={`Test at the ${breakpoint.width} pixel breakpoint`}
                                 aria-pressed={currentAtBoundary}
