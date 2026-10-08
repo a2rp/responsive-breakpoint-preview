@@ -63,7 +63,6 @@
             color: var(--muted);
             font-size: 10px;
             white-space: nowrap;
-            transition: color 140ms ease;
 
             &:hover {
                 color: var(--accent);

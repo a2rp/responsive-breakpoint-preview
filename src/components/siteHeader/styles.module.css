@@ -52,7 +52,6 @@
             color: var(--muted);
             font-size: 13px;
             font-weight: 650;
-            transition: color 140ms ease;
 
             &:hover {
                 color: var(--accent);
