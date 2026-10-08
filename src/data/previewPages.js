@@ -4,7 +4,7 @@ export const previewPages = [
         name: "Open Tide Retreat",
         image: "coast-forest.jpg",
         imageAlt: "Green trees frame a quiet shoreline.",
-        eyebrow: "COASTAL STAYS",
+        label: "COASTAL STAYS",
         title: "A slower kind of escape.",
         description:
             "Find your way to a quiet cabin, a long shoreline, and a little more room to breathe.",
@@ -16,7 +16,7 @@ export const previewPages = [
         name: "Common Table Cafe",
         image: "cafe-table.jpg",
         imageAlt: "Coffee rests on a wooden table in a sunlit cafe.",
-        eyebrow: "COFFEE AND COMPANY",
+        label: "COFFEE AND COMPANY",
         title: "Stay for the second cup.",
         description:
             "A neighborhood cafe for careful coffee, warm bread, and unhurried conversations.",
@@ -57,7 +57,7 @@ export const createPreviewHtml = (pageId, baseUrl) => {
       .top-action { border: 1px solid #385e50; border-radius: 6px; padding: 9px 13px; color: #26493e; font-size: 11px; font-weight: 700; white-space: nowrap; }
       .hero { display: grid; grid-template-columns: 1fr .92fr; align-items: center; gap: 5%; padding: 7.5% 6.5%; }
       .hero-copy { max-width: 470px; }
-      .eyebrow { margin: 0 0 14px; color: #b65c42; font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+      .label { margin: 0 0 14px; color: #b65c42; font-size: 10px; font-weight: 800; letter-spacing: .14em; }
       h1 { max-width: 470px; margin: 0; font-family: Georgia, serif; font-size: clamp(38px, 5vw, 68px); font-weight: 400; letter-spacing: -.055em; line-height: 1.01; }
       .description { max-width: 390px; margin: 18px 0 23px; color: #62716a; font-size: 14px; line-height: 1.65; }
       .primary-action { display: inline-flex; min-height: 42px; align-items: center; border-radius: 6px; background: #294f42; padding: 0 16px; color: white; font-size: 12px; font-weight: 700; }
@@ -106,7 +106,7 @@ export const createPreviewHtml = (pageId, baseUrl) => {
       <main>
         <section class="hero" id="stays">
           <div class="hero-copy">
-            <p class="eyebrow">${page.eyebrow}</p>
+            <p class="label">${page.label}</p>
             <h1>${page.title}</h1>
             <p class="description">${page.description}</p>
             <a class="primary-action" href="#details">${page.action}</a>
